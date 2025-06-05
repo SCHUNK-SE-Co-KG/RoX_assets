@@ -1,0 +1,4 @@
+
+# Ignore CAD data files for building assets
+*.obj
+*.mtl
