@@ -10,7 +10,7 @@ import os
 # ZIP_DEFLATED   | Medium            | Universal         | Fast
 # ZIP_BZIP2      | High              | Limited support   | Slower
 # ZIP_LZMA       | Highest           | Limited support   | Slowest
-from zipfile import ZipFile, ZIP_LZMA
+from zipfile import ZipFile, ZIP_DEFLATED
 
 # Notes:
 # - ZIP_DEFLATED is the best balance of compression and compatibility.
@@ -21,7 +21,7 @@ target = "../assets/egk_25.zip"
 
 
 def main(sdf_file: str, cad_folder: str) -> None:
-    with ZipFile(target, "w", compression=ZIP_LZMA) as f:
+    with ZipFile(target, "w", compression=ZIP_DEFLATED) as f:
 
         # .sdf
         f.write(sdf_file, arcname=os.path.basename(sdf_file))
