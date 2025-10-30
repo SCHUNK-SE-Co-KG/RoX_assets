@@ -31,6 +31,11 @@ def main(sdf_file: str, cad_folder: str) -> None:
         for file in obj_files:
             f.write(file, arcname=os.path.basename(file))
 
+        # .mtl
+        mat_files = glob.glob(os.path.join(cad_folder, "*.mtl"))
+        for file in mat_files:
+            f.write(file, arcname=os.path.basename(file))
+
 
 if __name__ == "__main__":
     parser = ArgumentParser(description="Create a RoX asset.")
